@@ -5,10 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ahh Bee's Wines — A Wine Guide for TACC Travelers</title>
   <meta name="description" content="A practical, approachable wine guide by Abby deVarennes for fellow TACC travelers. Discover great wines from California, Washington, Spain, Crete, Germany, Portugal and beyond.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ahh Bee's Wines — A Wine Guide for TACC Travelers">
+  <meta property="og:description" content="A practical, approachable wine guide by Abby deVarennes for fellow TACC travelers. Discover great wines from California, Washington, Spain, Crete, Germany, and Portugal.">
+  <meta property="og:image" content="https://ahhbeeswines.com/images/abby-devarennes-author-photo.jpg">
+  <meta property="og:url" content="https://ahhbeeswines.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ahh Bee's Wines — A Wine Guide for TACC Travelers">
+  <meta name="twitter:description" content="A practical, approachable wine guide by Abby deVarennes for fellow TACC travelers.">
+  <meta name="twitter:image" content="https://ahhbeeswines.com/images/abby-devarennes-author-photo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 </head>
 <body>
 
@@ -52,7 +63,7 @@
       <p class="text-center" style="color:#6b6b6b; margin: 0 auto 1rem;">Click a region to discover on-base picks, off-base gems, and local wine knowledge.</p>
       <div class="regions-grid">
 
-        <a href="california.html" class="region-card">
+        <a href="california.html" class="region-card" aria-label="Northern California — Napa, Sonoma, Paso Robles & more">
           <img src="images/northern-california-vineyard-square.png" alt="Northern California vineyard at sunset" class="region-card__image">
           <div class="region-card__overlay">
             <div class="region-card__name">Northern California</div>
@@ -60,7 +71,7 @@
           </div>
         </a>
 
-        <a href="washington.html" class="region-card">
+        <a href="washington.html" class="region-card" aria-label="Washington — Columbia Valley, Walla Walla & Yakima">
           <img src="images/washington-vineyard-banner.png" alt="Washington vineyard at sunset" class="region-card__image">
           <div class="region-card__overlay">
             <div class="region-card__name">Washington</div>
@@ -68,7 +79,7 @@
           </div>
         </a>
 
-        <a href="spain.html" class="region-card">
+        <a href="spain.html" class="region-card" aria-label="Spain — Rioja, Cava, and hidden gems from Rota">
           <img src="images/spain-flag-banner.jpg" alt="Spain" class="region-card__image">
           <div class="region-card__overlay">
             <div class="region-card__name">Spain</div>
@@ -76,7 +87,7 @@
           </div>
         </a>
 
-        <a href="crete.html" class="region-card">
+        <a href="crete.html" class="region-card" aria-label="Crete — Vidiano, Dafni & ancient grape revival">
           <img src="images/crete-harbor-banner.jpg" alt="Chania harbor in Crete" class="region-card__image">
           <div class="region-card__overlay">
             <div class="region-card__name">Crete</div>
@@ -84,7 +95,7 @@
           </div>
         </a>
 
-        <a href="germany.html" class="region-card">
+        <a href="germany.html" class="region-card" aria-label="Germany — Riesling country, Mosel, Rheingau & beyond">
           <img src="images/germany-mosel-vineyard-banner.jpg" alt="Mosel valley vineyard in Germany" class="region-card__image">
           <div class="region-card__overlay">
             <div class="region-card__name">Germany</div>
@@ -92,7 +103,7 @@
           </div>
         </a>
 
-        <a href="portugal.html" class="region-card">
+        <a href="portugal.html" class="region-card" aria-label="Portugal — Douro, Vinho Verde, Madeira & the Azores">
           <img src="images/portugal-aerial-harbor-banner.png" alt="Aerial view of a Portuguese harbor" class="region-card__image">
           <div class="region-card__overlay">
             <div class="region-card__name">Portugal</div>
@@ -100,7 +111,7 @@
           </div>
         </a>
 
-        <div class="region-card region-card--coming-soon">
+        <div class="region-card region-card--coming-soon" aria-disabled="true" tabindex="-1">
           <img src="images/italy-tuscany-banner.jpg" alt="Tuscany landscape in Italy" class="region-card__image">
           <span class="region-card__badge">Coming Soon</span>
           <div class="region-card__overlay">
@@ -109,10 +120,8 @@
           </div>
         </div>
 
-        <div class="region-card region-card--coming-soon">
-          <div class="region-card__image" style="height:200px; background: linear-gradient(135deg, #8a6a30, #c4a050); display:flex; align-items:center; justify-content:center;">
-            <span style="font-size:3rem; color:#fff; font-family:'Playfair Display',serif; font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,0.3);">Australia</span>
-          </div>
+        <div class="region-card region-card--coming-soon" aria-disabled="true" tabindex="-1">
+          <div class="region-card__image" style="height:200px; background: linear-gradient(135deg, #8a6a30, #c4a050);"></div>
           <span class="region-card__badge">Coming Soon</span>
           <div class="region-card__overlay">
             <div class="region-card__name">Australia</div>
@@ -130,9 +139,25 @@
       <h2>How Will I Know What I Like?</h2>
       <p style="max-width:650px; margin: 0 auto 2rem; color:#6b6b6b;">Wine can feel overwhelming, but it doesn't have to be. Start with what sounds good to you — bold and rich, or light and crisp? This chart shows red wines from lightest to boldest to help you explore.</p>
 
-      <div style="max-width:400px; margin:0 auto;">
-        <img src="images/red-wine-boldness-chart.png" alt="Red Wine Boldness Chart — from lightest (Pinot Noir, Gamay) to boldest (Petite Sirah, Tannat)" class="content-image">
+      <div class="boldness-chart">
+        <div class="boldness-chart__label boldness-chart__label--light">Light Body</div>
+        <ul class="boldness-chart__list">
+          <li>Gamay</li>
+          <li>Pinot Noir</li>
+          <li>Grenache</li>
+          <li>Sangiovese</li>
+          <li>Merlot</li>
+          <li>Zinfandel</li>
+          <li>Cabernet Sauvignon</li>
+          <li>Malbec</li>
+          <li>Syrah / Shiraz</li>
+          <li>Mourv&egrave;dre</li>
+          <li>Petite Sirah</li>
+          <li>Tannat</li>
+        </ul>
+        <div class="boldness-chart__label boldness-chart__label--bold">Full Body</div>
       </div>
+      <p class="boldness-chart__credit">Inspired by Wine Folly</p>
 
       <p style="margin-top: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; color: #6b6b6b;">The best way to find what you like? Try a few bottles from different regions and grapes. Start with the "Class 6 BX" picks in each region — they're approachable, affordable, and widely available on base.</p>
     </div>

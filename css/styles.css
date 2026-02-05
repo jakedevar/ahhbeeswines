@@ -30,6 +30,7 @@ img {
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 /* ---------- Typography ---------- */
@@ -39,7 +40,7 @@ h1, h2, h3, h4 {
 }
 
 h1 { font-size: 2.75rem; }
-h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+h2 { font-size: 2rem; margin-bottom: 1.25rem; }
 h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
 h4 { font-size: 1.2rem; margin-bottom: 0.4rem; }
 
@@ -73,6 +74,7 @@ p {
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #e8e4df;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
   padding: 0.8rem 0;
 }
 
@@ -101,6 +103,7 @@ p {
   font-weight: 500;
   transition: color 0.2s;
   color: #4a4a4a;
+  letter-spacing: 0.5px;
 }
 
 .nav__links a:hover {
@@ -119,7 +122,7 @@ p {
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: 5rem 0 4rem;
+  padding: 6rem 0 5rem;
   text-align: center;
   overflow: hidden;
 }
@@ -128,7 +131,11 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #fdf6f0 0%, #f5ece3 50%, #f0e6d9 100%);
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(200,160,120,0.15) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 30%, rgba(180,120,90,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(160,100,80,0.08) 0%, transparent 60%),
+    linear-gradient(135deg, #fdf6f0 0%, #f5ece3 50%, #f0e6d9 100%);
   z-index: -1;
 }
 
@@ -159,16 +166,68 @@ p {
 .hero__quote {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #9a7b6b;
-  margin-top: 1rem;
+  margin: 1.5rem auto 0;
+  max-width: fit-content;
+  padding: 0.5rem 0;
+}
+
+.hero__quote::before,
+.hero__quote::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: rgba(123,45,66,0.3);
+  margin: 0 auto;
+}
+
+.hero__quote::before {
+  margin-bottom: 0.75rem;
+}
+
+.hero__quote::after {
+  margin-top: 0.75rem;
+}
+
+/* ---------- About Section Centering ---------- */
+#about .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#about h2,
+#about p {
+  width: 100%;
+  max-width: 72ch;
+}
+
+#about {
+  position: relative;
+  overflow: hidden;
+}
+
+#about::after {
+  content: '';
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 160px;
+  height: 280px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 160'%3E%3Cpath d='M20 8h40c0 32-12 56-17 64v40h12a3 3 0 010 6H25a3 3 0 010-6h12V72C32 64 20 40 20 8z' fill='%237B2D42'/%3E%3C/svg%3E") center / contain no-repeat;
+  opacity: 0.04;
+  pointer-events: none;
 }
 
 /* ---------- Region Cards Grid ---------- */
 .regions-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.5rem;
+  justify-content: center;
   margin-top: 2rem;
 }
 
@@ -181,6 +240,8 @@ p {
   cursor: pointer;
   text-decoration: none;
   display: block;
+  flex: 1 1 320px;
+  max-width: calc(33.333% - 1rem);
 }
 
 .region-card:hover {
@@ -192,6 +253,11 @@ p {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.region-card:hover .region-card__image {
+  transform: scale(1.05);
 }
 
 .region-card__overlay {
@@ -225,6 +291,10 @@ p {
 .region-card--coming-soon:hover {
   transform: none;
   box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.region-card--coming-soon:hover .region-card__image {
+  transform: none;
 }
 
 .region-card__badge {
@@ -290,6 +360,7 @@ p {
   margin: 1.5rem 0 2.5rem;
   border-radius: 10px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  position: relative;
 }
 
 .wine-table {
@@ -309,7 +380,7 @@ p {
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
 }
 
 .wine-table__title-row td {
@@ -325,6 +396,20 @@ p {
   border-bottom: 1px solid #eee;
   vertical-align: top;
 }
+
+.wine-table tbody td:first-child {
+  border-left: 3px solid #ddd;
+}
+
+/* Region-specific table accent borders (using :has) */
+.wine-table:has(.table-header--california) tbody td:first-child { border-left-color: #5a8a2e; }
+.wine-table:has(.table-header--california-alt) tbody td:first-child { border-left-color: #e07b2e; }
+.wine-table:has(.table-header--washington) tbody td:first-child { border-left-color: #2a6b7c; }
+.wine-table:has(.table-header--spain) tbody td:first-child { border-left-color: #c0392b; }
+.wine-table:has(.table-header--spain-alt) tbody td:first-child { border-left-color: #8b1a1a; }
+.wine-table:has(.table-header--crete) tbody td:first-child { border-left-color: #2a7c6b; }
+.wine-table:has(.table-header--germany) tbody td:first-child { border-left-color: #5a7a3a; }
+.wine-table:has(.table-header--portugal) tbody td:first-child { border-left-color: #c0665a; }
 
 .wine-table tbody tr:last-child td {
   border-bottom: none;
@@ -377,6 +462,7 @@ p {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .map-section {
@@ -445,6 +531,7 @@ p {
   display: flex;
   align-items: center;
   gap: 0.35rem;
+  white-space: nowrap;
 }
 
 .legend-swatch {
@@ -475,6 +562,14 @@ p {
 .edu-block strong {
   color: #4a3728;
 }
+
+/* Region-specific edu-block border colors */
+.page--california .edu-block { border-left-color: #5a8a2e; }
+.page--washington .edu-block { border-left-color: #2a6b7c; }
+.page--spain .edu-block { border-left-color: #c0392b; }
+.page--crete .edu-block { border-left-color: #2a7c6b; }
+.page--germany .edu-block { border-left-color: #5a7a3a; }
+.page--portugal .edu-block { border-left-color: #c0665a; }
 
 /* ---------- Info Cards (Sweetness scales, Madeira types) ---------- */
 .info-cards {
@@ -557,10 +652,13 @@ p {
 .region-nav a {
   color: #7b2d42;
   font-weight: 500;
+  display: inline-block;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .region-nav a:hover {
   text-decoration: underline;
+  transform: translateX(-3px);
 }
 
 /* ---------- Region Subnav (other regions) ---------- */
@@ -588,10 +686,83 @@ p {
   color: #7b2d42;
 }
 
+.region-subnav a:not(.active):hover {
+  transform: scale(1.03);
+}
+
+.region-subnav a:not(.active)::after {
+  content: ' \203A';
+  display: inline-block;
+  margin-left: 0.2rem;
+  transition: transform 0.2s;
+  font-size: 1em;
+  opacity: 0.5;
+}
+
+.region-subnav a:not(.active):hover::after {
+  transform: translateX(2px);
+  opacity: 1;
+}
+
 .region-subnav a.active {
   background: #7b2d42;
   color: #fff;
   border-color: #7b2d42;
+}
+
+/* ---------- Boldness Chart ---------- */
+.boldness-chart {
+  max-width: 340px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.boldness-chart__label {
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.boldness-chart__label--light {
+  background: #f5e6dc;
+  color: #9a7b6b;
+}
+
+.boldness-chart__label--bold {
+  background: #4a1525;
+  color: #e8d5c4;
+}
+
+.boldness-chart__list {
+  list-style: none;
+  background: linear-gradient(to bottom, #d4a088, #7b2d42);
+}
+
+.boldness-chart__list li {
+  padding: 0.5rem 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.boldness-chart__list li:last-child {
+  border-bottom: none;
+}
+
+.boldness-chart__credit {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.75rem;
 }
 
 /* ---------- Footer ---------- */
@@ -602,11 +773,31 @@ p {
   text-align: center;
 }
 
+.footer::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #7b2d42, transparent);
+  border-radius: 1px;
+  margin: 0 auto 2rem;
+}
+
 .footer__brand {
   font-family: 'Playfair Display', Georgia, serif;
   font-size: 1.5rem;
   color: #e8d5c4;
   margin-bottom: 0.5rem;
+}
+
+.footer__brand::before {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  margin-right: 0.4rem;
+  vertical-align: -2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 2h8c0 5-2 9-3.5 10v6h3a1 1 0 010 2h-7a1 1 0 010-2h3v-6C10 11 8 7 8 2z' fill='%23e8d5c4' opacity='0.7'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .footer__tagline {
@@ -638,19 +829,71 @@ p {
   color: #777;
 }
 
+/* ---------- Focus & Accessibility ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #7b2d42;
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.region-card:focus-visible {
+  outline: 2px solid #7b2d42;
+  outline-offset: 4px;
+  border-radius: 14px;
+}
+
+.region-subnav a:focus-visible {
+  outline: 2px solid #7b2d42;
+  outline-offset: 2px;
+}
+
+/* ---------- Region Page Heading Underlines ---------- */
+.page--region .section > .container:not(.text-center) > h2 {
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.page--region .section > .container:not(.text-center) > h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.page--california .section > .container:not(.text-center) > h2::after { background: #5a8a2e; }
+.page--washington .section > .container:not(.text-center) > h2::after { background: #2a6b7c; }
+.page--spain .section > .container:not(.text-center) > h2::after { background: #c0392b; }
+.page--crete .section > .container:not(.text-center) > h2::after { background: #2a7c6b; }
+.page--germany .section > .container:not(.text-center) > h2::after { background: #5a7a3a; }
+.page--portugal .section > .container:not(.text-center) > h2::after { background: #c0665a; }
+
+/* ---------- Spacing Enhancements ---------- */
+#regions {
+  padding-bottom: 5rem;
+}
+
+.page--region .wine-table-wrap {
+  margin-bottom: 3.5rem;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
   h1 { font-size: 2rem; }
   h2 { font-size: 1.5rem; }
 
-  .hero { padding: 3rem 0 2.5rem; }
+  .hero { padding: 3.5rem 0 3rem; }
   .hero__title { font-size: 2.2rem; }
   .hero__photo { width: 140px; height: 140px; }
 
   .section { padding: 2.5rem 0; }
 
-  .regions-grid {
-    grid-template-columns: 1fr;
+  .regions-grid > * {
+    flex: 1 1 100%;
+    max-width: 100%;
   }
 
   .region-hero { height: 220px; }
@@ -694,10 +937,58 @@ p {
   }
 
   .wine-table { font-size: 0.85rem; }
+
+  #about::after {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
   .hero__title { font-size: 1.8rem; }
   .region-hero__title { font-size: 2rem; }
   .container { width: 95%; }
+}
+
+/* ---------- Print Styles ---------- */
+@media print {
+  .nav,
+  .footer {
+    display: none;
+  }
+
+  .section:has(.region-subnav) {
+    display: none;
+  }
+
+  .wine-table tbody tr {
+    break-inside: avoid;
+  }
+
+  .region-hero {
+    height: auto;
+    padding: 2rem 0;
+    color: #2c2c2c;
+  }
+
+  .region-hero::after {
+    display: none;
+  }
+
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  body {
+    font-size: 12pt;
+    background: #fff;
+  }
+
+  .wine-table-wrap {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  .content-image {
+    box-shadow: none;
+  }
 }
