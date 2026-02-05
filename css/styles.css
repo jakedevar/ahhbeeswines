@@ -1,0 +1,670 @@
+/* ============================================
+   Ahh Bee's Wines — Global Styles
+   ============================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Lato', 'Segoe UI', sans-serif;
+  color: #2c2c2c;
+  background: #fefefe;
+  line-height: 1.65;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  line-height: 1.25;
+}
+
+h1 { font-size: 2.75rem; }
+h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+h4 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+
+p {
+  margin-bottom: 1rem;
+  max-width: 72ch;
+}
+
+/* ---------- Layout Utilities ---------- */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section--alt {
+  background: #f8f6f3;
+}
+
+.text-center { text-align: center; }
+
+/* ---------- Navigation ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e8e4df;
+  padding: 0.8rem 0;
+}
+
+.nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #7b2d42;
+}
+
+.nav__links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  align-items: center;
+}
+
+.nav__links a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  color: #4a4a4a;
+}
+
+.nav__links a:hover {
+  color: #7b2d42;
+}
+
+.nav__toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4a4a4a;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  padding: 5rem 0 4rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #fdf6f0 0%, #f5ece3 50%, #f0e6d9 100%);
+  z-index: -1;
+}
+
+.hero__photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.hero__title {
+  font-size: 3rem;
+  color: #7b2d42;
+  margin-bottom: 0.5rem;
+}
+
+.hero__subtitle {
+  font-size: 1.15rem;
+  color: #6b6b6b;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  font-style: italic;
+}
+
+.hero__quote {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #9a7b6b;
+  margin-top: 1rem;
+}
+
+/* ---------- Region Cards Grid ---------- */
+.regions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.region-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+}
+
+.region-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+.region-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.region-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color: #fff;
+}
+
+.region-card__name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.region-card__teaser {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.25rem;
+}
+
+.region-card--coming-soon {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.region-card--coming-soon:hover {
+  transform: none;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.region-card__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* ---------- Region Page Hero Banners ---------- */
+.region-hero {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.region-hero__bg {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.region-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.region-hero__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+  letter-spacing: 0.02em;
+}
+
+/* Region color overlays */
+.region-hero--california::after { background: linear-gradient(135deg, rgba(180,80,20,0.6), rgba(200,120,30,0.5)); }
+.region-hero--washington::after { background: linear-gradient(135deg, rgba(40,70,120,0.6), rgba(160,80,100,0.4)); }
+.region-hero--spain::after      { background: linear-gradient(135deg, rgba(160,30,30,0.6), rgba(200,160,30,0.4)); }
+.region-hero--crete::after      { background: linear-gradient(135deg, rgba(20,100,110,0.6), rgba(180,140,60,0.4)); }
+.region-hero--germany::after    { background: linear-gradient(135deg, rgba(80,70,50,0.6), rgba(100,120,60,0.4)); }
+.region-hero--portugal::after   { background: linear-gradient(135deg, rgba(180,70,50,0.6), rgba(40,100,100,0.4)); }
+
+/* ---------- Wine Tables ---------- */
+.wine-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.wine-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 650px;
+}
+
+.wine-table__header-row {
+  color: #fff;
+  text-align: left;
+}
+
+.wine-table__header-row th {
+  padding: 0.9rem 1rem;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.wine-table__title-row td {
+  padding: 0.8rem 1rem;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.wine-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+  vertical-align: top;
+}
+
+.wine-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.wine-table tbody tr:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+/* Region-specific table header colors */
+.table-header--california { background: #5a8a2e; }
+.table-header--california-alt { background: #e07b2e; }
+.table-title--california { background: #6b9e35; }
+.table-title--california-alt { background: #e88c3a; }
+
+.table-header--washington { background: #2a6b7c; }
+.table-title--washington { background: #358a9e; }
+.table-header--washington-off { background: #2a6b7c; }
+.table-title--washington-off { background: #358a9e; }
+
+.table-header--spain { background: #c0392b; }
+.table-title--spain { background: #d44637; }
+.table-header--spain-alt { background: #8b1a1a; }
+.table-title--spain-alt { background: #a52222; }
+
+.table-header--crete { background: #2a7c6b; }
+.table-title--crete { background: #35a08a; }
+.table-header--crete-alt { background: #2a7c6b; }
+.table-title--crete-alt { background: #35a08a; }
+
+.table-header--germany { background: #5a7a3a; }
+.table-title--germany { background: #6b8e4a; }
+.table-header--germany-alt { background: #5a7a3a; }
+.table-title--germany-alt { background: #6b8e4a; }
+
+.table-header--portugal { background: #c0665a; }
+.table-title--portugal { background: #d47a6e; }
+.table-header--portugal-alt { background: #c0665a; }
+.table-title--portugal-alt { background: #d47a6e; }
+
+/* Varietal highlight colors (the subtle cell backgrounds from Canva) */
+.varietal--red    { background: #fde8e8; }
+.varietal--yellow { background: #fef9e7; }
+.varietal--green  { background: #eafaf1; }
+.varietal--blue   { background: #ebf5fb; }
+.varietal--pink   { background: #fdf2f8; }
+
+/* ---------- Pie Charts (CSS conic-gradient) ---------- */
+.pie-chart-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.pie-chart-wrap {
+  text-align: center;
+}
+
+.pie-chart-wrap h3 {
+  margin-bottom: 1.2rem;
+  font-size: 1.35rem;
+}
+
+.pie-chart {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  margin: 0 auto 1.2rem;
+  position: relative;
+}
+
+.pie-chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.2rem;
+  justify-content: center;
+  font-size: 0.85rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ---------- Educational Content Blocks ---------- */
+.edu-block {
+  background: #faf8f5;
+  border-left: 4px solid #c9a87c;
+  padding: 2rem 2.5rem;
+  border-radius: 0 8px 8px 0;
+  margin: 2rem 0;
+}
+
+.edu-block h3 {
+  color: #7b2d42;
+  margin-bottom: 0.75rem;
+}
+
+.edu-block p {
+  max-width: 72ch;
+}
+
+.edu-block strong {
+  color: #4a3728;
+}
+
+/* ---------- Info Cards (Sweetness scales, Madeira types) ---------- */
+.info-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.info-card {
+  background: #f0edea;
+  border-radius: 8px;
+  padding: 1.2rem 1.5rem;
+  text-align: center;
+  min-width: 140px;
+  flex: 1;
+  max-width: 200px;
+}
+
+.info-card__label {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.info-card__sublabel {
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+
+.info-card__detail {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* Color-coded info cards */
+.info-card--orange  { border-top: 4px solid #e67e22; }
+.info-card--green   { border-top: 4px solid #6b8e4a; }
+.info-card--purple  { border-top: 4px solid #8e44ad; }
+.info-card--pink    { border-top: 4px solid #e91e90; }
+.info-card--teal    { border-top: 4px solid #1abc9c; }
+.info-card--red     { border-top: 4px solid #c0392b; }
+
+/* ---------- Winery Table ---------- */
+.winery-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.winery-table th {
+  background: #6b8e4a;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.winery-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.winery-table tbody tr:hover {
+  background: rgba(0,0,0,0.02);
+}
+
+/* ---------- Region Breadcrumb / Back Nav ---------- */
+.region-nav {
+  padding: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.region-nav a {
+  color: #7b2d42;
+  font-weight: 500;
+}
+
+.region-nav a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Region Subnav (other regions) ---------- */
+.region-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin: 2rem 0 0;
+}
+
+.region-subnav a {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  border: 2px solid #ddd;
+  color: #555;
+}
+
+.region-subnav a:hover {
+  border-color: #7b2d42;
+  color: #7b2d42;
+}
+
+.region-subnav a.active {
+  background: #7b2d42;
+  color: #fff;
+  border-color: #7b2d42;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background: #2c2420;
+  color: #ccc;
+  padding: 3rem 0 2rem;
+  text-align: center;
+}
+
+.footer__brand {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.5rem;
+  color: #e8d5c4;
+  margin-bottom: 0.5rem;
+}
+
+.footer__tagline {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 1.5rem;
+}
+
+.footer__links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+
+.footer__links a {
+  color: #bbb;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.footer__links a:hover {
+  color: #e8d5c4;
+}
+
+.footer__copy {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+
+  .hero { padding: 3rem 0 2.5rem; }
+  .hero__title { font-size: 2.2rem; }
+  .hero__photo { width: 140px; height: 140px; }
+
+  .section { padding: 2.5rem 0; }
+
+  .regions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .region-hero { height: 220px; }
+  .region-hero__title { font-size: 2.5rem; }
+
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    flex-direction: column;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e8e4df;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    gap: 0.75rem;
+  }
+
+  .nav__links.open {
+    display: flex;
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .pie-chart { width: 200px; height: 200px; }
+
+  .info-cards {
+    gap: 0.5rem;
+  }
+
+  .info-card {
+    min-width: 120px;
+    padding: 0.8rem 1rem;
+  }
+
+  .edu-block {
+    padding: 1.5rem;
+  }
+
+  .wine-table { font-size: 0.85rem; }
+}
+
+@media (max-width: 480px) {
+  .hero__title { font-size: 1.8rem; }
+  .region-hero__title { font-size: 2rem; }
+  .container { width: 95%; }
+}
