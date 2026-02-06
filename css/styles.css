@@ -203,6 +203,11 @@ p {
 .hero__content {
   flex: 1;
   text-align: center;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
 .hero::before {
@@ -210,7 +215,7 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(253,246,240,0.88) 0%, rgba(245,236,227,0.85) 50%, rgba(240,230,217,0.88) 100%),
+    linear-gradient(135deg, rgba(253,246,240,0.78) 0%, rgba(245,236,227,0.75) 50%, rgba(240,230,217,0.78) 100%),
     url('../images/washington-vineyard-banner.png') center / cover no-repeat;
   z-index: -1;
 }
