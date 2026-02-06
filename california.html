@@ -29,7 +29,17 @@
       <button class="nav__toggle" aria-label="Toggle menu">&#9776;</button>
       <ul class="nav__links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#regions">Regions</a></li>
+        <li class="nav__dropdown">
+          <a href="index.html#regions" class="nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false">Regions <span class="nav__dropdown-arrow">&#9662;</span></a>
+          <ul class="nav__dropdown-menu">
+            <li><a href="california.html">California</a></li>
+            <li><a href="washington.html">Washington</a></li>
+            <li><a href="spain.html">Spain</a></li>
+            <li><a href="crete.html">Crete</a></li>
+            <li><a href="germany.html">Germany</a></li>
+            <li><a href="portugal.html">Portugal</a></li>
+          </ul>
+        </li>
         <li><a href="#quick-picks">Quick Picks</a></li>
         <li><a href="#off-base">Off-Base</a></li>
         <li><a href="#education">Learn</a></li>
