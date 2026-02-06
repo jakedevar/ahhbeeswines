@@ -86,7 +86,7 @@ p {
 
 .nav__logo {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #7b2d42;
 }
@@ -183,6 +183,18 @@ p {
   overflow: hidden;
 }
 
+.hero .container {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1300px;
+}
+
+.hero__content {
+  flex: 1;
+  text-align: left;
+}
+
 .hero::before {
   content: '';
   position: absolute;
@@ -196,13 +208,14 @@ p {
 }
 
 .hero__photo {
-  width: 360px;
-  height: 360px;
+  width: 720px;
+  height: 720px;
   border-radius: 50%;
   object-fit: cover;
-  margin: 0 auto 1.5rem;
+  margin: 0;
   border: 4px solid #fff;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  flex-shrink: 1;
 }
 
 .hero__title {
@@ -215,7 +228,7 @@ p {
   font-size: 1.15rem;
   color: #6b6b6b;
   max-width: 600px;
-  margin: 0 auto 0.5rem;
+  margin: 0 0 0.5rem;
   font-style: italic;
 }
 
@@ -224,7 +237,7 @@ p {
   font-style: italic;
   font-size: 1.15rem;
   color: #9a7b6b;
-  margin: 0.5rem auto 0;
+  margin: 0.5rem 0 0;
   max-width: fit-content;
   padding: 0.5rem 0;
 }
@@ -236,7 +249,7 @@ p {
   width: 60px;
   height: 1px;
   background: rgba(123,45,66,0.3);
-  margin: 0 auto;
+  margin: 0;
 }
 
 .hero__quote::before {
@@ -943,7 +956,12 @@ button:focus-visible {
   h2 { font-size: 1.5rem; }
 
   .hero { padding: 3.5rem 0 3rem; }
+  .hero .container { flex-direction: column-reverse; gap: 1.5rem; }
+  .hero__content { text-align: center; }
   .hero__title { font-size: 2.2rem; }
+  .hero__subtitle { margin: 0 auto 0.5rem; }
+  .hero__quote { margin: 0.5rem auto 0; }
+  .hero__quote::before, .hero__quote::after { margin: 0 auto; }
   .hero__photo { width: 280px; height: 280px; }
 
   .section { padding: 2.5rem 0; }
