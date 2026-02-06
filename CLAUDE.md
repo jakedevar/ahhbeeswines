@@ -91,7 +91,7 @@ Pure CSS, no JS. Pattern:
 ### Deploy Command
 
 ```bash
-aws s3 sync ~/ahhbeeswines/ s3://ahhbeeswines.com --exclude ".git/*" --exclude ".gitignore" && aws cloudfront create-invalidation --distribution-id E3DM4SMN12PYC3 --paths "/*"
+aws s3 sync ~/ahhbeeswines/ s3://ahhbeeswines.com --exclude ".git/*" --exclude ".gitignore" --cache-control "no-cache, no-store, must-revalidate" && aws cloudfront create-invalidation --distribution-id E3DM4SMN12PYC3 --paths "/*"
 ```
 
 The `s3 sync` uploads changed files. The `create-invalidation` busts the CloudFront cache so visitors see updates immediately.
