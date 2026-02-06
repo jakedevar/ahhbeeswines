@@ -215,7 +215,7 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(253,246,240,0.78) 0%, rgba(245,236,227,0.75) 50%, rgba(240,230,217,0.78) 100%),
+    linear-gradient(135deg, rgba(253,246,240,0.63) 0%, rgba(245,236,227,0.60) 50%, rgba(240,230,217,0.63) 100%),
     url('../images/washington-vineyard-banner.png') center / cover no-repeat;
   z-index: -1;
 }
