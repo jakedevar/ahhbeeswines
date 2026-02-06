@@ -109,7 +109,7 @@ p {
 }
 
 .nav__links a {
-  font-size: 0.95rem;
+  font-size: 1.15rem;
   font-weight: 500;
   transition: color 0.2s;
   color: #4a4a4a;
@@ -232,6 +232,16 @@ p {
   font-size: 3rem;
   color: #7b2d42;
   margin-bottom: 0.5rem;
+}
+
+.hero__title::before {
+  content: '';
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  margin-right: 0.5rem;
+  vertical-align: -3px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 2h8c0 5-2 9-3.5 10v6h3a1 1 0 010 2h-7a1 1 0 010-2h3v-6C10 11 8 7 8 2z' fill='%237b2d42' opacity='0.7'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .hero__subtitle {
