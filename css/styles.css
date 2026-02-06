@@ -193,17 +193,26 @@ p {
 .hero__content {
   flex: 1;
   text-align: center;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
 }
 
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 20% 50%, rgba(200,160,120,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(180,120,90,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(160,100,80,0.08) 0%, transparent 60%),
-    linear-gradient(135deg, #fdf6f0 0%, #f5ece3 50%, #f0e6d9 100%);
+  background: rgba(0,0,0,0.45);
   z-index: -1;
 }
 
@@ -213,20 +222,20 @@ p {
   border-radius: 50%;
   object-fit: cover;
   margin: 0;
-  border: 4px solid #fff;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  border: 4px solid rgba(255,255,255,0.8);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
   flex-shrink: 1;
 }
 
 .hero__title {
   font-size: 3rem;
-  color: #7b2d42;
+  color: #fff;
   margin-bottom: 0.5rem;
 }
 
 .hero__subtitle {
   font-size: 1.15rem;
-  color: #6b6b6b;
+  color: rgba(255,255,255,0.85);
   max-width: 600px;
   margin: 0 auto 0.5rem;
   font-style: italic;
@@ -236,7 +245,7 @@ p {
   font-family: 'Playfair Display', Georgia, serif;
   font-style: italic;
   font-size: 1.15rem;
-  color: #9a7b6b;
+  color: rgba(255,255,255,0.7);
   margin: 0.5rem auto 0;
   max-width: fit-content;
   padding: 0.5rem 0;
@@ -248,7 +257,7 @@ p {
   display: block;
   width: 60px;
   height: 1px;
-  background: rgba(123,45,66,0.3);
+  background: rgba(255,255,255,0.3);
   margin: 0 auto;
 }
 
