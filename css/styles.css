@@ -75,7 +75,7 @@ p {
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #e8e4df;
   box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-  padding: 0.8rem 0;
+  padding: 1.2rem 0;
 }
 
 .nav .container {
@@ -86,9 +86,19 @@ p {
 
 .nav__logo {
   font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.8rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: #7b2d42;
+}
+
+.nav__logo::before {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  margin-right: 0.4rem;
+  vertical-align: -2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 2h8c0 5-2 9-3.5 10v6h3a1 1 0 010 2h-7a1 1 0 010-2h3v-6C10 11 8 7 8 2z' fill='%237b2d42' opacity='0.7'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 .nav__links {
