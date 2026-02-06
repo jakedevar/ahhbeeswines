@@ -993,8 +993,15 @@ button:focus-visible {
 /* ---------- Region Page Heading Underlines ---------- */
 .page--region .section > .container:not(.text-center) > h2 {
   position: relative;
-  padding-bottom: 0.75rem;
+  padding: 0.75rem 1.5rem 1rem;
   text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(6px);
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
 .page--region .section > .container:not(.text-center) > h2::after {
@@ -1011,6 +1018,14 @@ button:focus-visible {
 /* Center standalone h3 subsection titles in region pages */
 .page--region .section > .container > h3 {
   text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5rem 1.2rem 0.6rem;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(6px);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 /* Center intro paragraphs under centered headings */
