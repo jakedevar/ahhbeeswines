@@ -210,10 +210,8 @@ p {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(200,160,120,0.15) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 30%, rgba(180,120,90,0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at 50% 80%, rgba(160,100,80,0.08) 0%, transparent 60%),
-    linear-gradient(135deg, #fdf6f0 0%, #f5ece3 50%, #f0e6d9 100%);
+    linear-gradient(135deg, rgba(253,246,240,0.88) 0%, rgba(245,236,227,0.85) 50%, rgba(240,230,217,0.88) 100%),
+    url('../images/washington-vineyard-banner.png') center / cover no-repeat;
   z-index: -1;
 }
 
