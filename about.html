@@ -227,6 +227,12 @@
     </section>
   </main>
 
+  <!-- Lightbox Dialog -->
+  <dialog id="lightbox" class="lightbox-dialog" aria-label="Image viewer">
+    <img src="" alt="" class="lightbox-dialog__img">
+    <form method="dialog"><button class="lightbox-dialog__close" aria-label="Close">&times;</button></form>
+  </dialog>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -237,10 +243,29 @@
         <li><a href="index.html#regions">Regions</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
-      <p class="footer__copy">&copy; 2025 Abby deVarennes. All rights reserved.</p>
+      <p class="footer__copy">&copy; 2026 Abby deVarennes. All rights reserved.</p>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+  (function () {
+    var dialog = document.getElementById('lightbox');
+    if (!dialog) return;
+    var img = dialog.querySelector('img');
+    document.querySelectorAll('.about-gallery__grid figure').forEach(function (fig) {
+      fig.addEventListener('click', function () {
+        var src = fig.querySelector('img');
+        if (!src) return;
+        img.src = src.src;
+        img.alt = src.alt;
+        dialog.showModal();
+      });
+    });
+    dialog.addEventListener('click', function (e) {
+      if (e.target === dialog) dialog.close();
+    });
+  })();
+  </script>
 </body>
 </html>

@@ -367,7 +367,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.25em;
   font-size: 0.85rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.88);
   margin-bottom: 0.6rem;
 }
 
@@ -1179,7 +1179,7 @@ p {
 
 .footer__copy {
   font-size: 0.8rem;
-  color: #777;
+  color: #999;
 }
 
 /* ---------- Focus & Accessibility ---------- */
@@ -1381,6 +1381,89 @@ button:focus-visible {
   .page--region .section { width: 98%; border-radius: 8px; }
   .page--region .region-nav { width: 98%; }
   .about-gallery__grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .region-card:hover { transform: none; }
+  .region-card:hover .region-card__image { transform: none; }
+  .region-subnav a:not(.active):hover { transform: none; }
+  .region-nav a:hover { transform: none; }
+}
+
+/* ---------- Table Scroll Indicator (mobile) ---------- */
+.wine-table-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 32px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.85));
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 768px) {
+  .wine-table-wrap::after {
+    opacity: 1;
+  }
+}
+
+/* ---------- Gallery Lightbox (dialog) ---------- */
+.about-gallery__grid figure {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.about-gallery__grid figure:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+}
+
+.lightbox-dialog {
+  border: none;
+  background: transparent;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+}
+
+.lightbox-dialog::backdrop {
+  background: rgba(0,0,0,0.9);
+}
+
+.lightbox-dialog__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0,0,0,0.5);
+}
+
+.lightbox-dialog__close {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lightbox-dialog__close:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-gallery__grid figure { transition: none; }
+  .about-gallery__grid figure:hover { transform: none; }
 }
 
 /* ---------- Print Styles ---------- */
