@@ -356,10 +356,10 @@ p {
   position: relative;
   z-index: 1;
   max-width: 760px;
-  background: rgba(0,0,0,0.35);
+  background: rgba(0,0,0,0.82);
   padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.75);
 }
 
 .about-hero__eyebrow,
