@@ -630,6 +630,7 @@ p {
 .page--germany    { background-image: url('../images/germany-mosel-vineyard-banner.jpg'); }
 .page--portugal   { background-image: url('../images/portugal-aerial-harbor-banner.png'); }
 .page--austria    { background-image: url('../images/austria-alpine-banner.jpg'); }
+.page--australia  { background-image: url('../images/australia-outback-banner.jpg'); }
 
 /* Very light gray overlay over parallax background */
 .page--region::before {
@@ -764,6 +765,7 @@ p {
 .wine-table:has(.table-header--germany) tbody td:first-child { border-left-color: #5a7a3a; }
 .wine-table:has(.table-header--portugal) tbody td:first-child { border-left-color: #c0665a; }
 .wine-table:has(.table-header--austria) tbody td:first-child { border-left-color: #7b2d6b; }
+.wine-table:has(.table-header--australia) tbody td:first-child { border-left-color: #b8702a; }
 
 .wine-table tbody tr:last-child td {
   border-bottom: none;
@@ -808,6 +810,11 @@ p {
 .table-title--austria { background: #9a3d85; }
 .table-header--austria-alt { background: #7b2d6b; }
 .table-title--austria-alt { background: #9a3d85; }
+
+.table-header--australia { background: #b8702a; }
+.table-title--australia { background: #cf8a3a; }
+.table-header--australia-alt { background: #2d7a3a; }
+.table-title--australia-alt { background: #3d9a4a; }
 
 /* Varietal highlight colors (the subtle cell backgrounds from Canva) */
 .varietal--red    { background: #fde8e8; }
@@ -930,6 +937,7 @@ p {
 .page--germany .edu-block { border-left-color: #5a7a3a; }
 .page--portugal .edu-block { border-left-color: #c0665a; }
 .page--austria .edu-block { border-left-color: #7b2d6b; }
+.page--australia .edu-block { border-left-color: #b8702a; }
 
 /* ---------- Info Cards (Sweetness scales, Madeira types) ---------- */
 .info-cards {
@@ -1261,6 +1269,7 @@ button:focus-visible {
 .page--germany .section > .container:not(.text-center) > h2::after { background: #5a7a3a; }
 .page--portugal .section > .container:not(.text-center) > h2::after { background: #c0665a; }
 .page--austria .section > .container:not(.text-center) > h2::after { background: #7b2d6b; }
+.page--australia .section > .container:not(.text-center) > h2::after { background: #b8702a; }
 
 /* ---------- Spacing Enhancements ---------- */
 #regions {
